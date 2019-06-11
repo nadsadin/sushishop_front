@@ -1,0 +1,66 @@
+@import "_custom-variables/sushishop-material";
+@import "rtl/bootstrap-material";
+@import "rtl/appwork-material";
+@import "rtl/theme-sushishop-material";
+@import "colors-material";
+@import "uikit";
+
+.demo-navbar-messages .dropdown-toggle,
+.demo-navbar-notifications .dropdown-toggle,
+.demo-navbar-user .dropdown-toggle,
+.demo-navbar-messages.b-nav-dropdown .nav-link,
+.demo-navbar-notifications.b-nav-dropdown .nav-link,
+.demo-navbar-user.b-nav-dropdown .nav-link {
+  white-space: nowrap;
+}
+
+.demo-navbar-messages .dropdown-menu,
+.demo-navbar-notifications .dropdown-menu {
+  overflow: hidden;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .demo-navbar-messages .dropdown-menu,
+  .demo-navbar-notifications .dropdown-menu {
+    margin-top: .5rem;
+    width: 22rem;
+  }
+
+  .demo-navbar-user .dropdown-menu {
+    margin-top: .25rem;
+  }
+}
+.demo-navbar-user .dropdown-menu{
+  position: absolute!important;
+}
+.navbar-name{
+  font-weight: 300;
+  font-size: 14px;
+}
+.btn{
+  text-transform: none;
+}
+.icon-demo{
+  font-size: 25px;
+  [class^="icon"]{
+    padding: .625rem;
+    margin: .125rem;
+    border: 1px solid #e7e7e7;
+    display: inline-block;
+    &:hover{
+      background-color: #e7e7e7;
+    }
+  }
+}
+.h2, h2{
+  font-size: 32px;
+}
+
+a{
+  &.text-dark[href]{
+    @include hover-focus{
+      color: $primary-color!important;
+    }
+  }
+}

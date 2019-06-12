@@ -137,3 +137,6 @@
 
 .icon-user:before {
   content: "\e927"; }
+
+.icon-xl {
+  font-size: 64px; }

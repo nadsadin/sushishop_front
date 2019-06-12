@@ -795,6 +795,17 @@ li.ui-timepicker-selected,
   -webkit-box-shadow: 0 -1px 0 rgba(24, 28, 33, 0.04) inset;
           box-shadow: 0 -1px 0 rgba(24, 28, 33, 0.04) inset; }
 
+.hoverable:hover {
+  -webkit-box-shadow: 0 2px 12px 0px rgba(0, 0, 0, 0.04), 0 1px 16px 0 rgba(0, 0, 0, 0.06), 0 3px 4px -2px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 2px 12px 0px rgba(0, 0, 0, 0.04), 0 1px 16px 0 rgba(0, 0, 0, 0.06), 0 3px 4px -2px rgba(0, 0, 0, 0.06); }
+
+.bg-light {
+  background-color: #E5E5E5; }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 960px; } }
+
 .bg-footer-theme {
   background-color: #f3f3f3 !important;
   color: #757575; }

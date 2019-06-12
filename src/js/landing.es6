@@ -1,24 +1,36 @@
 $(function() {
-    $('body').on('click', '.anchor-link', function(e) {
-        e.preventDefault();
-        $("html, body").stop().animate({
-            scrollTop: Math.round($(this.getAttribute('href')).offset().top) + 'px'
-        }, 500);
+    var swiperWithPagination = new Swiper('#swiper-with-pagination', {
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
     });
 
-    $('form').submit(function (e) {
-        let form = $(this);
-        let url = form.attr('action');
-        $.ajax({
-            type: 'POST',
-            url: url,
-            data: form.serialize(), // serializes the form's elements.
-            success: function(data)
-            {
-                $('.modal').modal('hide');
-                $(data).modal('toggle');
+    // Wrap charts
+    $('.chartjs').each(function() {
+        $(this).wrap($('<div style="height:' + this.getAttribute('height') + 'px"></div>'));
+    });
+    var pieChart = new Chart(document.getElementById('chart-pie').getContext("2d"), {
+        type: 'pie',
+        data: {
+            labels: ['Пройдено', 'Не пройдено'],
+            datasets: [{
+                data: [ 5, 15 ],
+                backgroundColor: [ '#F2F2F2', '#F26722' ],
+                hoverBackgroundColor: [ '#F2F2F2', '#F26722']
+            }]
+        },
+
+        // Demo
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            tooltips: {
+                enabled: false
             }
-        });
-        e.preventDefault();
+        }
     });
 });

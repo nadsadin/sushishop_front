@@ -807,14 +807,14 @@ li.ui-timepicker-selected,
     max-width: 960px; } }
 
 .bg-footer-theme {
-  background-color: #f3f3f3 !important;
+  background-color: #FFFFFF !important;
   color: #757575; }
   .bg-footer-theme .footer-link {
     color: #757575; }
     .bg-footer-theme .footer-link:hover, .bg-footer-theme .footer-link:focus {
       color: #F26722; }
     .bg-footer-theme .footer-link.disabled {
-      color: #a7a7a7 !important; }
+      color: #acacac !important; }
   .bg-footer-theme .footer-text {
     color: #F26722; }
   .bg-footer-theme .show > .footer-link,
@@ -823,4 +823,4 @@ li.ui-timepicker-selected,
   .bg-footer-theme .footer-link.active {
     color: #F26722; }
   .bg-footer-theme hr {
-    border-color: rgba(242, 103, 34, 0.0773529); }
+    border-color: rgba(242, 103, 34, 0.075); }

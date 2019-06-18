@@ -17994,3 +17994,7 @@ a.text-dark[href]:hover, a.text-dark[href]:focus {
     left: 0;
     width: 100%;
     height: 100%; }
+
+.no-shadow {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important; }

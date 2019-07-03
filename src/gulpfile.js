@@ -114,7 +114,7 @@ gulp.task('build:js', function(cb) {
 // Build fonts
 
 const FONT_TASKS = [
-  { name: 'fontawesome', path: 'node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/*' },
+  { name: 'fontawesome', path: 'node_modules/@fortawesome/fontawesome-free/webfonts/*' },
   { name: 'linearicons', path: 'node_modules/linearicons/dist/web-font/fonts/*' },
   { name: 'pe-icon-7-stroke', path: 'node_modules/pixeden-stroke-7-icon/pe-icon-7-stroke/fonts/*' },
   { name: 'open-iconic', path: 'node_modules/open-iconic/font/fonts/*' },

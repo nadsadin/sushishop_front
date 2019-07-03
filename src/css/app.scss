@@ -131,3 +131,6 @@ a{
 .no-shadow{
   box-shadow: none!important;
 }
+a.text-muted.active{
+  color: $body-color!important;
+}

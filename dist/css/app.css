@@ -18001,3 +18001,9 @@ a.text-dark[href]:hover, a.text-dark[href]:focus {
 
 a.text-muted.active {
   color: #212121 !important; }
+
+.ql-content img {
+  max-width: 100%; }
+
+.ql-content iframe {
+  max-width: 100%; }

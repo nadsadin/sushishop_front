@@ -36,6 +36,18 @@
     <!-- `perfect-scrollbar` library required by SideNav plugin -->
     <link rel="stylesheet" href="libs/perfect-scrollbar/perfect-scrollbar.css">
 
+    <link rel="stylesheet" href="libs/quill/typography.css">
+    <link rel="stylesheet" href="libs/quill/editor.css">
+
+    <script>
+        // Quill does not support IE 10 and below so don't load it to prevent console errors
+        if (typeof document.documentMode !== 'number' || document.documentMode > 10) {
+            document.write('\x3Cscript src="libs/quill/quill.js">\x3C/script>');
+        }
+    </script>
+
+    <!--  Datetime picker  -->
+    <link rel="stylesheet" href="libs/bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.css">
 </head>
 <body>
 
@@ -136,7 +148,7 @@
 
                 <!-- Page content -->
                 <div class="container flex-grow-1 container-p-y">
-                    <h2 class="text-light  font-weight-normal mt-4 mb-1">Расписание</h2>
+                    <h2 class="text-light  font-weight-normal mt-4 mb-1">Добавить расписание </h2>
                     <ol class="breadcrumb small mb-4">
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)">Главная</a>
@@ -144,35 +156,24 @@
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)">Обучение</a>
                         </li>
-                        <li class="breadcrumb-item active">Расписание</li>
+                        <li class="breadcrumb-item active">Добавить расписание</li>
                     </ol>
-                    <div class="my-4">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Даты занятий</th>
-                                    <th>Ссылки на расписание</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>09.09.2019-15.09.2019</td>
-                                    <td><a href="#" class="text-primary">Расписание занятий</a></td>
-                                </tr>
-                                <tr>
-                                    <td>09.09.2019-15.09.2019</td>
-                                    <td><a href="#" class="text-primary">Расписание занятий</a></td>
-                                </tr>
-                                <tr>
-                                    <td>09.09.2019-15.09.2019</td>
-                                    <td><a href="#" class="text-primary">Расписание занятий</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <form action="">
+                        <div class="form-group">
+                            <label class="form-label">Даты занятий</label>
+                            <input type="text" class="form-control" placeholder="Даты занятий" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ссылка на расписание</label>
+                            <input type="text" class="form-control" placeholder="Ссылка на расписание" name="title">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-round">Сохранить</button>
+                        </div>
+
+                    </form>
                 </div>
                 <!-- / Page content -->
-
 
                 <!-- Layout footer -->
                 <nav class="footer bg-footer-theme pt-4">
@@ -224,6 +225,11 @@
 <script src="libs/popper/popper.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/sidenav.js"></script>
+<!-- Dependencies: -->
+<script src="libs/moment/moment.js"></script>
+<script src="libs/bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.js"></script>
+
+<script src="js/form.js"></script>
 
 <!-- Libs -->
 

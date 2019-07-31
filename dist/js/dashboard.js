@@ -5,6 +5,18 @@ $(function() {
         filesizeBase:    1000,
         addRemoveLinks:  true,
     });
+    $('#dropzone-docs').dropzone({
+        parallelUploads: 2,
+        maxFilesize:     50000,
+        filesizeBase:    1000,
+        addRemoveLinks:  true,
+    });
+    $('#dropzone-invoices').dropzone({
+        parallelUploads: 2,
+        maxFilesize:     50000,
+        filesizeBase:    1000,
+        addRemoveLinks:  true,
+    });
 
     // Mock the file upload progress (only for the demo)
     //

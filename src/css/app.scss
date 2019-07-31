@@ -134,6 +134,9 @@ a{
 a.text-muted.active{
   color: $body-color!important;
 }
+a.project-attachment{
+  cursor: pointer;
+}
 .ql-content{
   img{
     max-width: 100%;

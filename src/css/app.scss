@@ -145,3 +145,18 @@ a.project-attachment{
     max-width: 100%;
   }
 }
+
+.card{
+  border: 1px solid rgba(24, 28, 33, 0.15);
+}
+.material-style .ui-bordered {
+  border: 1px solid rgba(24, 28, 33, 0.15);
+}
+
+.hidden{
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  left: -999;
+}

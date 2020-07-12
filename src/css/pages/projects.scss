@@ -17,7 +17,7 @@ $project-task-item-padding: .625rem 0 !default;
 }
 
 .project-attachment-file,
-.project-attachment-img {
+.project-attachment-img{
   display: block;
   flex-grow: 0;
   flex-shrink: 0;
@@ -36,7 +36,11 @@ $project-task-item-padding: .625rem 0 !default;
   background-position: center center;
   background-size: cover;
 }
-
+.project-attachment-icon{
+  img{
+    width: 24px;
+  }
+}
 .project-attachment-filename {
   display: block;
   overflow: hidden;

@@ -192,6 +192,13 @@
                         <i class="icon-wifi" title=".icon-wifi"></i>
 
                     </div>
+                    <div class="form-group position-relative">
+                        <select class="form-control" id="id_user_profile-phone_number_0">
+                            <option value="+7" selected="" data-iso="RU">Россия +7</option>
+                            <option value="+63" data-iso="PH">Филиппины +63</option>
+                            <option value="+90" data-iso="TR">Турция +90</option>
+                        </select>
+                    </div>
                 </div>
                 <!-- / Page content -->
                 <!-- Layout footer -->
@@ -249,6 +256,31 @@
 
 <!-- `perfect-scrollbar` library required by SideNav plugin -->
 <script src="libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<link rel="stylesheet" href="libs/select2/select2.css">
+<script src="libs/select2/select2.js"></script>
+<script>
+    function formatState (state) {
+        if (!state.id) {
+            return state.text;
+        }
 
+        var baseUrl = "img/flags";
+        var $state = $(
+            '<span><img class="img-flag" /> <span></span></span>'
+        );
+
+        // Use .text() instead of HTML string concatenation to avoid script injection issues
+        $state.find("span").text(state.text);
+        $state.find("img").attr("src", baseUrl + "/" + state.element.dataset.iso + ".png");
+
+        return $state;
+    };
+    $(function() {
+        $("#id_user_profile-phone_number_0").select2({
+            templateSelection: formatState,
+            templateResult: formatState,
+        });
+    });
+</script>
 </body>
 </html>

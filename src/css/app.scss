@@ -190,4 +190,12 @@ a.project-attachment{
       fill: currentColor;
     }
   }
+  &.badge-active{
+    background-color: #84c76b;
+    color: #fff;
+  }
+  &.badge-disabled{
+    background-color: #e0e3de;
+    color: #212121;
+  }
 }

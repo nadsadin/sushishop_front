@@ -11,19 +11,32 @@ $(function() {
         theme: 'snow'
     });
 
+    var form = document.getElementById('news-form');
+    if(form) {        
+        form.onsubmit = function() {
+            // Populate hidden form on submit
+            var body = document.querySelector('input[name=body]');
+            var content = document.querySelector('input[name=content]');
+            body.value = $('div.ql-editor').html();
+            content.value = $('div.ql-editor').html();
 
-    var form = document.querySelector('form');
-    form.onsubmit = function() {
-        // Populate hidden form on submit
-        var body = document.querySelector('input[name=body]');
-        body.value = JSON.stringify(editor.getContents());
+            console.log("Submitted", $(form).serialize(), $(form).serializeArray());
 
-        console.log("Submitted", $(form).serialize(), $(form).serializeArray());
+            // No back end to actually submit to!
+            //alert('Для production варианта нужно изменить функцию сабмита формы!')
+            //return false;
+        };
+    }
 
-        // No back end to actually submit to!
-        alert('Для production варианта нужно изменить функцию сабмита формы!')
-        return false;
-    };
+    var form2 = document.getElementById('mailing-form');
+
+    if(form2) {
+        form2.onsubmit = function() {
+            var content = document.querySelector('input[name=content]');
+            content.value = $('div.ql-editor').html();
+        };
+    }
+
 
     var okText = "Ок";
     var clearText = "Очистить";
@@ -73,6 +86,28 @@ $(function() {
                 placeholder: 'Выберите значение',
                 dropdownParent: $(this).parent()
             });
+    });
+    $('select[data-bs-ms="multiple"]').each(function() {
+        $(this)
+        .multiselect({
+            enableClickableOptGroups: true,
+            enableCollapsibleOptGroups: true,
+            collapseOptGroupsByDefault: false,
+            enableFiltering: true,
+            includeSelectAllOption: true,
+            buttonWidth: '100%',
+            maxHeight: 400,
+            dropUp: true,
+            selectAllText: $(this).data('bs-ms-alltext') || "Выбрать все",
+            allSelectedText: "Все выбраны",
+            nonSelectedText: "Выберите значения",
+            nSelectedText: " выбраны",
+            filterPlaceholder: "Поиск",
+            templates: {
+              filter: '<li class="multiselect-item filter"><div class="input-group input-group-sm"><span class="input-group-prepend"><span class="input-group-text"><i class="ion ion-ios-search"></i></span></span><input class="form-control multiselect-search" type="text" placeholder="Поиск"></div></li>',
+              filterClearBtn: '<span class="input-group-append"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="ion ion-md-close"></i></button></span>',
+            }
+          });
     });
 
 });

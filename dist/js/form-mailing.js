@@ -3,7 +3,7 @@ $(function() {
         return $('#quill-editor,#quill-toolbar').remove();
     }
 
-    var editor = new Quill('#quill-editor', {
+    const editor = new Quill('#quill-editor', {
         modules: {
             toolbar: '#quill-toolbar'
         },
@@ -11,28 +11,59 @@ $(function() {
         theme: 'snow'
     });
 
-    var form = document.getElementById('news-form');
-    if(form) {        
-        form.onsubmit = function() {
-            // Populate hidden form on submit
-            var body = document.querySelector('input[name=body]');
-            var content = document.querySelector('input[name=content]');
-            body.value = $('div.ql-editor').html();
+
+    function toBase64(file) {
+        return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+        });
+    };
+
+    async function tobase64Handler(files) {
+        const filePathsPromises = [];
+        Array.from(files).forEach(file => {
+        filePathsPromises.push(toBase64(file));
+        });
+        const filePaths = await Promise.all(filePathsPromises);
+        const mappedFiles = filePaths.map((base64File) => ({ "name":"files[]", "value": base64File }));
+        return mappedFiles;
+    }
+
+    const form2 = document.getElementById('mailing-form');
+
+    if(form2) {
+        form2.onsubmit = async function(e) {
+            e.preventDefault();
+            const content = document.querySelector('input[name=content]');
             content.value = $('div.ql-editor').html();
-
-            console.log("Submitted", $(form).serialize(), $(form).serializeArray());
-
-            // No back end to actually submit to!
-            //alert('Для production варианта нужно изменить функцию сабмита формы!')
-            //return false;
+            const files = await tobase64Handler($('input[name="files[]"]')[0].files);
+            const data = JSON.stringify({data: [...$(form2).serializeArray(), ...files]});
+            const url = $(form2).attr('action');
+            console.log("Submitted", data, {data: [...$(form2).serializeArray(), ...files]}, $(form2).serialize());
+            $.post(url, data, function(){},'json')
+            .done(function(result){
+                if(result.meta && result.meta.error === 201){
+                    document.location.assign(result.link);
+                } else {
+                    $('#modal-error .modal-body').html('<div>'+result.error_messages.join(' ')+'</div>');
+                    $('#modal-error').modal('show');
+                }
+            })
+            .fail(()=>{                    
+                $('#modal-error .modal-body').html('<div>Ошибка выполнения запроса. Обратитесь к администратору</div>');
+                $('#modal-error').modal('show');
+            });
+            return false;
         };
     }
 
 
-    var okText = "Ок";
-    var clearText = "Очистить";
-    var nowText = "Сейчас";
-    var cancelText = "Отменить";
+    const okText = "Ок";
+    const clearText = "Очистить";
+    const nowText = "Сейчас";
+    const cancelText = "Отменить";
 
     $('#b-m-dtp-date').bootstrapMaterialDatePicker({
         weekStart: 1,

@@ -221,11 +221,11 @@
 
                             <div class="form-group">
                                 <label class="form-label">Вложения</label>
-                                <input type="file" multiple="multiple" class="form-control" placeholder="Дата и время">
+                                <input type="file" multiple="multiple" class="form-control" name="files[]">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Получатели</label>
-                                <select data-bs-ms="multiple" multiple>
+                                <select data-bs-ms="multiple" multiple name="partners1[]">
                                     <optgroup label="Группа 1">
                                         <option value="1-1">И. Иванова</option>
                                         <option value="1-2" selected="selected">И. Петрова</option>
@@ -240,7 +240,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Получатели</label>
-                                <select data-bs-ms="multiple" data-bs-ms-alltext="Все партнеры" multiple>
+                                <select data-bs-ms="multiple" data-bs-ms-alltext="Все партнеры" multiple name="partners2[]">
                                     <option value="1-1">Option 1.1</option>
                                     <option value="1-2" selected="selected">Option 1.2</option>
                                     <option value="1-3" selected="selected">Option 1.3</option>
@@ -301,6 +301,21 @@
         <!-- Layout inner -->
     </div>
     <!-- / Layout wrapper -->
+    
+    <div class="modal fade" id="modal-error">
+        <div class="modal-dialog">
+            <form class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Ошибка
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Core scripts -->
 
@@ -313,7 +328,7 @@
     <script src="libs/bootstrap-material-datetimepicker/bootstrap-material-datetimepicker.js"></script>
     <script src="libs/bootstrap-multiselect/bootstrap-multiselect.js"></script>
 
-    <script src="js/form.js"></script>
+    <script src="js/form-mailing.js"></script>
 
     <!-- Libs -->
 

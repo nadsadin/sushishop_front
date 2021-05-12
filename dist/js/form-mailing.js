@@ -16,7 +16,7 @@ $(function() {
         return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
+        reader.onload = () => resolve({base64: reader.result, filename: file.name});
         reader.onerror = error => reject(error);
         });
     };
@@ -27,7 +27,7 @@ $(function() {
         filePathsPromises.push(toBase64(file));
         });
         const filePaths = await Promise.all(filePathsPromises);
-        const mappedFiles = filePaths.map((base64File) => ({ "name":"files[]", "value": base64File }));
+        const mappedFiles = filePaths.map((item) => ({ "name":"files[]", "value": item.base64, "filename": item.filename }));
         return mappedFiles;
     }
 

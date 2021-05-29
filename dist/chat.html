@@ -457,7 +457,14 @@
                                     <div>
                                     <button type="button" class="btn btn-primary rounded-pill icon-btn mr-1"><i class="ion ion-ios-call"></i></button>
                                     <button type="button" class="btn btn-secondary rounded-pill icon-btn mr-1"><i class="ion ion-md-videocam"></i></button>
-                                    <button type="button" class="btn btn-default rounded-pill icon-btn"><i class="ion ion-ios-more"></i></button>
+                                    <div class="dropdown d-inline-block">
+                                        <button type="button" class="btn btn-default rounded-pill icon-btn dropdown-toggle hide-arrow" data-toggle="dropdown"><i class="ion ion-ios-more"></i></button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <div class="list-group list-group-flush">
+                                                <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#modal-group-details">Участники</a>    
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
 
@@ -646,6 +653,57 @@
         <!-- Layout inner -->
     </div>
     <!-- / Layout wrapper -->
+    <div class="modal fade" id="modal-group-details">
+        <div class="modal-dialog">
+            <form class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Участники
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="chat-contacts list-group py-3">
+                        <!-- Online -->
+                        <div class="list-group-item list-group-item-action online">
+                            <img src="img/avatars/2.png" class="d-block ui-w-40 rounded-circle" alt="">
+                            <div class="media-body ml-3">
+                                Leon Wilson
+                                <div class="chat-status small"><span class="badge badge-dot"></span>&nbsp; Online</div>
+                            </div>
+                            <div class="btn-group d-inline-block align-self-start">
+                                <button type="button" class="btn btn-sm btn-default icon-btn borderless btn-round md-btn-flat dropdown-toggle hide-arrow" data-toggle="dropdown">
+                                    <i class="ion ion-ios-more"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="javascript:void(0)">Профиль</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Offline -->
+                        <div class="list-group-item list-group-item-action">
+                            <img src="img/avatars/2.png" class="d-block ui-w-40 rounded-circle" alt="">
+                            <div class="media-body ml-3">
+                                Leon Wilson
+                                <div class="chat-status small"><span class="badge badge-dot"></span>&nbsp; Offline</div>
+                            </div>
+                            <div class="btn-group d-inline-block align-self-start">
+                                <button type="button" class="btn btn-sm btn-default icon-btn borderless btn-round md-btn-flat dropdown-toggle hide-arrow" data-toggle="dropdown">
+                                    <i class="ion ion-ios-more"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="javascript:void(0)">Профиль</a>
+                                    <a class="dropdown-item" href="javascript:void(0)">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Core scripts -->
 

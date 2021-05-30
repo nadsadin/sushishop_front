@@ -31,6 +31,7 @@
     <!--<link rel="stylesheet" href="css/uikit.css">-->
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/pages/chat.css">
+    <link rel="stylesheet" href="libs/select2/select2.css">
 
     <!-- Layout helpers -->
     <script src="js/layout-helpers.js"></script>
@@ -323,6 +324,9 @@
                                     <input type="text" class="form-control chat-search my-3" placeholder="Search...">
                                     </div>
                                     <a href="javascript:void(0)" class="chat-sidebox-toggler d-lg-none d-block text-muted text-large font-weight-light pl-3">&times;</a>
+                                </div>
+                                <div>
+                                    <a href="javascript:void(0)" class="btn btn-primary w-100 mb-3" data-toggle="modal" data-target="#modal-group-create">Создать группу</a>
                                 </div>
                                 <hr class="border-light m-0">
                                 </div>
@@ -653,6 +657,48 @@
         <!-- Layout inner -->
     </div>
     <!-- / Layout wrapper -->
+    <!-- Group create -->
+    <div class="modal fade" id="modal-group-create">
+        <div class="modal-dialog">
+            <form class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Создать группу
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="" class="form-label">Название группы</label>
+                        <input type="text" name="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-label">Участники</label>
+                        <select name="users" multiple class="select2 form-control w-100">
+                            <option value="1">Иван Иванов</option>
+                            <option value="2">Илья Петров</option>
+                            <option value="3">Дарья Донцова</option>
+                            <option value="4">Иван Иванов</option>
+                            <option value="5">Илья Петров</option>
+                            <option value="6">Дарья Донцова</option>
+                            <option value="7">Иван Иванов</option>
+                            <option value="8">Илья Петров</option>
+                            <option value="9">Дарья Донцова</option>
+                            <option value="10">Иван Иванов</option>
+                            <option value="11">Илья Петров</option>
+                            <option value="12">Дарья Донцова</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /Group create -->
+    <!-- Group details -->
     <div class="modal fade" id="modal-group-details">
         <div class="modal-dialog">
             <form class="modal-content">
@@ -704,6 +750,7 @@
             </form>
         </div>
     </div>
+    <!-- /Group details -->
 
     <!-- Core scripts -->
 
@@ -711,6 +758,7 @@
     <script src="libs/popper/popper.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/sidenav.js"></script>
+    <script src="libs/select2/select2.js"></script>
 
     <!-- Libs -->
 
@@ -730,6 +778,15 @@
             $('.chat-sidebox-toggler').click(function(e) {
                 e.preventDefault();
                 $('.chat-wrapper').toggleClass('chat-sidebox-open');
+            });
+            $('.select2').each(function() {
+                $(this)
+                    .wrap('<div class="position-relative"></div>')
+                    .select2({
+                        dropdownParent: $(this).parent(),
+                        closeOnSelect: false,
+                        scrollAfterSelect: true,
+                    });
             });
 
         });

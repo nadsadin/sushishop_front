@@ -623,12 +623,14 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Type your message">
                                     <div class="input-group-append">
-                                        <a href="javascript:void(0)" class="btn icon-btn btn-default md-btn-flat mr-3">
+                                        <label for="file" class="btn icon-btn btn-default md-btn-flat mr-3">
                                             <span class="fas fa-paperclip"></span>
-                                        </a>
+                                        </label>
+                                        <input type="file" id="file" style="display: none;" name="file">
                                         <button type="button" class="btn btn-primary">Send</button>
                                     </div>
                                 </div>
+                                <span id="filename"></span>
                                 </div>
                                 <!-- / Chat footer -->
 
@@ -790,6 +792,14 @@
                         closeOnSelect: false,
                         scrollAfterSelect: true,
                     });
+            });
+
+            $('#file').on('change', function (e) {
+                var fileName = '';
+                if( this.files && this.files.length > 0 ){
+                    fileName = Array.from(this.files).map(i => i.name).join(', ');
+                }
+                $('#filename').html(fileName);
             });
 
         });
